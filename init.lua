@@ -969,7 +969,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
@@ -1006,3 +1006,78 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+
+-- kyle
+
+-- for plugin "VSCode Neovim"
+if vim.g.vscode then
+	-- VSCode plugin
+else
+	--  neovim plugin
+end
+
+vim.cmd([[
+	set number        " show line numbers
+	filetype indent on    " auto indent by file type
+
+	" PS. List all color schemes:
+	" 1.Enter "colorscheme <space> <Ctrl-d>"
+	" 2.Run "ls -l /usr/share/vim/vim<version>/colors"
+	"colorscheme torte   " use theme "torte"
+	"colorscheme elflord    " use theme "elflord"
+	"colorscheme sorbet  " use theme "sorbet"
+
+	"set incsearch      " use incremental search
+	"set hlsearch     " use search highlight
+	syntax on               " enable syntax highlighting
+	set tabstop=4     " width for existing tab characters
+	set shiftwidth=4    " number of indent spaces
+	set expandtab     " keep vim from converting 8 spaces into tabs
+	set softtabstop=4   " width for entering tab characters
+	set fileencodings=big5,ucs-bom,utf-8,euc-jp,euc-kr,cp936,gb18030,latin1
+	"set background=dark  " affects syntax-highlight colors
+
+	set cursorline          " highlight current line & set "\c" as enable/disable hotkey
+	"hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+	"hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+	" nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+
+	if has('gui_running')  " set GUI font
+		"set guifont=Source\ Code\ Pro:h12:cANSI
+		"set guifont=DejaVu\ Sans\ Mono:h12:cANSI
+		set guifont=Consolas:h14
+	endif
+
+	set autoindent    " auto indent
+	set mouse=a     " enable mouse
+	vmap <C-C> "+y    " copy text block
+
+	" Set the filetype based on the file's extension, overriding any
+	" 'filetype' that has already been set
+	"au BufRead,BufNewFile *.html.twig set filetype=html
+	au BufRead,BufNewFile *.pc set filetype=c
+
+	" for plug-ins
+	set nocompatible
+	filetype plugin on
+	set secure
+
+	" tell vim-plug what plugin to install
+	call plug#begin('~/AppData/Local/nvim/plugged')
+		Plug 'sheerun/vim-polyglot'
+		"Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+		Plug 'nvim-lualine/lualine.nvim'
+		Plug 'kyazdani42/nvim-web-devicons'
+		"Plug 'joshdick/onedark.vim'
+		"Plug 'iCyMind/NeoSolarized'
+		"Plug 'vim-airline/vim-airline'
+		"Plug 'vim-airline/vim-airline-themes'
+		Plug 'preservim/nerdtree'
+		" Plug 'chipsenkbeil/distant.nvim',
+		" \{
+		" \	'branch': 'v0.3',
+		" \	'do': ':lua require("distant"):setup()'
+		" \}
+	call plug#end()
+]])

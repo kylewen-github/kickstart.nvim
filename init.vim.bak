@@ -1,0 +1,46 @@
+
+set number				" show line numbers
+filetype indent on		" auto indent by file type
+colorscheme torte		" use theme "torte"
+"colorscheme elflord		" use theme "elflord"
+						" PS. List all color schemes:
+						" 1.Enter "colorscheme <space> <Ctrl-d>"
+						" 2.Run "ls -l /usr/share/vim/vim<version>/colors"
+"set incsearch			" use incremental search
+"set hlsearch			" use search highlight
+syntax on               " enable syntax highlighting
+set tabstop=4			" width for existing tab characters
+set shiftwidth=4		" number of indent spaces
+set expandtab			" keep vim from converting 8 spaces into tabs
+set softtabstop=4		" width for entering tab characters
+set fileencodings=ucs-bom,utf-8,big5,euc-jp,euc-kr,cp936,gb18030,latin1
+"set background=dark	" affects syntax-highlight colors
+
+set cursorline          " highlight current line & set "\c" as enable/disable hotkey
+"hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+"hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+" nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+
+"if has('gui_running')	" set GUI font
+"	"set guifont=Source_Code_Pro:h12:cANSI
+"	set guifont=DejaVu\ Sans\ Mono:h12:cANSI
+"endif
+set guifont=DejaVu\ Sans\ Mono:h12:cANSI
+
+set autoindent		" auto indent
+set mouse=a			" enable mouse
+vmap <C-C> "+y 		" copy text block
+
+
+" for plug-ins
+set nocompatible
+filetype plugin on
+set secure
+
+"call plug#begin()
+"Plug 'sheerun/vim-polyglot'
+"Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+"Plug 'nvim-lualine/lualine.nvim'
+"Plug 'kyazdani42/nvim-web-devicons'
+"call plug#end()
+
